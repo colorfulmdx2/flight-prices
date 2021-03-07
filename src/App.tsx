@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import './App.scss';
+import {LoginPage} from "./components/login-page/login-page";
+import {useDispatch, useSelector} from "react-redux";
+import {AppRootStateType} from "./redux-store/store";
+import {FlightInfo} from "./components/flight-info/flight-info";
+import {setAuthWatcherAction} from "./redux-store/reducer";
+import {Redirect, Route} from 'react-router-dom';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(setAuthWatcherAction()) //initialization
+    }, [dispatch])
+
+    const isAuth = useSelector<AppRootStateType, boolean>(state => state.reducer.auth)
+
+    return (
+        <>
+            {!isAuth && <Redirect to={'/login'}/>}
+
+            <Route exact path={'/'} render={() => <FlightInfo/>}/>
+            <Route path={'/login'} render={() => <LoginPage/>}/>
+        </>
+    );
 }
 
 export default App;

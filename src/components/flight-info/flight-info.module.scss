@@ -1,0 +1,174 @@
+  .container {
+    box-sizing: border-box;
+    position: relative;
+    background: whitesmoke;
+    width: 100%;
+    height: 100vh;
+    padding-top: 50px;
+
+
+    .logOutContainer {
+      cursor: pointer;
+      position: absolute;
+      top: 30px;
+      right: 50px;
+      display: flex;
+      width: 130px;
+      height: 50px;
+      justify-content: space-between;
+      align-items: center;
+      color: #1157A7;
+      font-size: 22px;
+    }
+
+    .content {
+      box-sizing: border-box;
+      height: 800px;
+      width: 600px;
+      margin: 0 auto;
+      padding: 50px 30px;
+      box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+      border-radius: 20px;
+      background: #fff;
+
+      .info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+
+        .text {
+          font-size: 30px;
+        }
+
+
+        input {
+          box-sizing: border-box;
+          border: none;
+          width: 191px;
+          outline: none;
+          font-size: 20px;
+          color: #1157A7;
+        }
+      }
+
+      .favorites {
+        margin-bottom: 30px
+      }
+
+      .flightPrices {
+        height: 442px;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar-track {
+          -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+          background-color: #fff;
+        }
+
+        &::-webkit-scrollbar {
+          width: 2px;
+          background-color: #fff;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: #1157A7;
+          border: none;
+        }
+      }
+    }
+  }
+
+  .ticketContainer {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    padding: 0 15px 0 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    position: relative;
+
+    &:hover {
+      background: rgba(0, 119, 255, 0.05);
+      transition: all ease-in .1s;
+    }
+
+    &:after {
+      content: '';
+      background: whitesmoke;
+      height: 1px;
+      width: 95%;
+      position: absolute;
+      bottom: -5px;
+      left: 1px;
+    }
+
+    .imageContainer {
+      height: 64px;
+      width: 64px;
+
+      border-radius: 50%;
+      background: rgba(0, 119, 255, 0.05);
+      position: relative;
+
+      img {
+        position: absolute;
+        top: 15px;
+        left: 14px;
+      }
+    }
+
+    .ticketInfo {
+      height: 85%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+
+      .direction {
+        display: flex;
+        align-items: center;
+
+        img {
+          height: 20px;
+          margin: 0 10px 0 10px;
+        }
+      }
+
+      .date {
+        color: #878787;
+      }
+
+      .company {
+        color: #878787;
+      }
+    }
+
+    .likePrice {
+      display: flex;
+      position: relative;
+      height: 100%;
+      .like {
+        cursor: pointer;
+        position: absolute;
+        top: 8px;
+        left: 24px;
+      }
+
+      .price {
+        align-self: flex-end;
+        margin-bottom: 10px;
+        position: relative;
+        .priceTitle {
+          position: absolute;
+          bottom: 1px;
+          left: -36px;
+          color: #878787;
+          font-size: 11px;
+        }
+      }
+    }
+
+  }
